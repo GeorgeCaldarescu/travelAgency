@@ -1,0 +1,333 @@
+/* Global styles  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+h1{
+    font-size: 2.6rem;
+}
+
+li, button, label, input, p{
+    font-size: 2rem;
+}
+
+h2{
+    font-size:4.8rem;
+}
+
+h3{
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+h4, h5{
+    font-size: 2.8rem;
+}
+
+a{
+    color: white;
+    text-decoration:none;
+}
+
+button{
+    padding: 2rem 6rem;
+    background: #4c6e97;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+
+    /* create the transition from the original color to the second one. Is possible to add the kind of transitione (google it easing to find different ones) and the duration*/
+    transition: background ease-in-out 0.5s; 
+}
+
+/* animate the button, change the color when you are on it  */
+
+button:hover{
+    background: #27394e;
+}
+
+/* Nav section with Hero  */
+.main-head{
+    background: #131c27;
+    color: white;
+    /* to have the menu bar in each page  */
+    position: sticky;
+    top: 0px;
+    /* the z-index is because without the bar is behind the coulds and the other images*/
+    z-index: 3;
+}
+
+nav{
+    min-height: 10vh;
+    padding: 2rem;
+    display: flex;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav ul{
+    display: flex;
+    flex: 1 1 40rem;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+#logo{
+    flex: 2 1 40rem;
+    font-family: 'Pattaya', sans-serif;
+    font-weight: normal; 
+    
+}
+
+.hero{
+    /* put the image nicely to use a linear gradient, if I use the normal url I obtain only the image */
+    min-height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url("./imagines_icons/img/landing-page.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h3{
+    padding: 5rem;
+}
+
+
+/* Locations section */
+#locations{
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url("./imagines_icons/img/new-york-page.png");
+    background-size: cover;
+    background-position: center;  
+    display: flex;
+    align-items: center; 
+    
+    /* this is because of the clouds, otherwise are located on the top of the main page and not the location page and overflow is to don't show the image in the other page when it move up*/
+    position: relative;
+    overflow: hidden;
+}
+
+/* to align the text with the logo in the first page */
+.locations-head{
+    width: 90%;
+    margin: auto;
+}
+
+/* put some space in the text. the 0 it means i have 0 padding to left and right*/
+.locations-head h2{
+    padding: 1rem 0rem;
+}
+
+.locations-head h3{
+    padding: 4rem 0rem;
+}
+
+/* make the clouds animation  */
+.cloud{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+}
+
+.moving-cloud-1{
+    animation: cloudAnimation 3s infinite alternate ease-in-out;
+}
+
+.moving-cloud-2{
+    top: 20%;
+    /* to put it behid, try without the z-index and you can understand why  */
+    z-index: -1;
+    opacity: 0.5;
+    animation: cloudAnimation 3.5s infinite alternate ease-in-out;
+}
+
+/* the real cloud animation, how will change from ... to... or I can also use %*/
+@keyframes cloudAnimation{
+    from{
+        transform: translate(10%, -10%);
+    }
+
+    to{
+        transform: translate(0%, 0%);
+    }
+}
+
+/* Benefits section */
+
+.benefits-header{
+    background: #343c44;
+    padding: 3rem;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+.benefits-header h3{
+    padding: 1rem;
+}
+
+.cards{
+    width: 90%;
+    margin: auto;
+    display: flex;
+   min-height: 70vh;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+.card{
+    text-align: center;
+    flex: 1 1 25rem;
+    min-height: 40vh;
+    margin: 2rem 5rem;
+    /* add shadow to the boxes in this way I can have the white background, the first value is x, the second is y, the third is the blury and the last one is the color. You can easely find the right value in Figma, in this example the box shadow was duplicated in this way I have a more intense shadow nearby the corner and fade in the background*/
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card img{
+    max-width: 15%;
+    margin: 2rem;
+}
+
+.card h4, .card p{
+    padding: 1rem;
+}
+
+
+.card-icon{
+    background:#4c6e97;
+}
+
+button:focus{
+    background: #2c3f57;
+    outline-style: solid;
+}
+/* Start to make the Contact part */
+#contact{
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent) ,url("./imagines_icons/img/contact-mountain.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.form-wrapper{
+    background: rgba(19, 28, 39, 0.9);
+    width: 60%;
+    color: white;
+    /* to make the borders rounded */
+    border-radius: 20px;
+}
+
+.form-head{
+    text-align: center;
+    padding: 4rem;
+}
+.name-form, .email-form{
+    padding: 4rem;
+    text-align: center;
+}
+.form-wrapper label{
+    margin: 0 3rem;
+}
+.form-wrapper button{
+    width: 100%;
+    padding: 2rem;
+    margin-top: 8rem;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.form-wrapper input{
+    padding: 1rem 3rem;
+}
+
+/* make the footer */
+footer{
+    color: white;
+    background:rgba(19, 28, 39, 0.9);
+}
+
+.footer-wrapper{
+    display: flex;
+    padding: 2rem;
+    width: 90%;
+    margin:auto;
+    align-items: center;
+    min-height: 10vh;
+    flex-wrap: wrap;
+}
+footer h5{
+    flex: 1 1 40rem;
+}
+footer ul{
+    display: flex;
+    list-style: none;
+    flex: 1 1 40rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* add the parameteres to be responsive */
+@media screen and (max-width: 933px){
+    html{
+        font-size:45%;
+    }
+    nav{
+        text-align: center;
+    }
+    #logo{
+        padding:2rem;
+    }
+    .cloud{
+        height: 40rem;
+        /* to be able to select the text*/
+        pointer-events: none;
+    }
+    .moving-cloud-1{
+        z-index: -1;
+    }
+    .moving-cloud-2{
+        z-index: -2;
+    }
+    /* is to have that kind of square background because otherwise is difficult to read the text */
+    .locations-head h3{
+        background: rgba(19, 28, 39, 0.8);
+        color: white;
+    }
+
+    .form-wrapper{
+        width: 100%;
+    }
+    footer{
+        text-align: center;
+    }
+    footer h5{
+        padding-bottom: 3rem;
+    }
+}
